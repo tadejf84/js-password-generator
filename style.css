@@ -18,10 +18,32 @@ body {
 
 .wrapper {
     background-color: var(--wrapper-bg);
-    height: 400px;
+    height: auto;
     width: 400px;
+    padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.12);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.input {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+#display-pwd {
+    width: 100%;
+}
+
+#enter-pwd-length {
+    max-width: 40px;
 }
 
 
