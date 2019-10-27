@@ -10,31 +10,48 @@
 <body>
 
     <div class="wrapper">
-        <input type="text" id="display-pwd">
+
+        <div class="input-group">
+            <input type="text" value="Generate your password" id="display-pwd" class="input">
+        </div>
+
         <div class="input-group">
             <span>Password Length</span>
-            <input type="number" id="enter-pwd-length">
+            <input type="number" value="10" min="6" max="20" id="enter-pwd-length" class="input">
         </div>
-        <label class="checkbox-container">
+
+        <div class="input-group">
             <span>Uppercase letters</span>
-            <input type="checkbox" id="uppercase-letters" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <label class="checkbox-container">
+            <label class="checkbox-container">
+                <input type="checkbox" id="uppercase-letters" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="input-group">
             <span>Lowercase letters</span>
-            <input type="checkbox" id="lowercase-letters" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <label class="checkbox-container">
+            <label class="checkbox-container">
+                <input type="checkbox" id="lowercase-letters" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="input-group">
             <span>Numbers</span>
-            <input type="checkbox" id="numbers" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-        <label class="checkbox-container">
+            <label class="checkbox-container">
+                <input type="checkbox" id="numbers" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div class="input-group">
             <span>Symbols</span>
-            <input type="checkbox" id="symbols" checked="checked">
-            <span class="checkmark"></span>
-        </label>
+            <label class="checkbox-container">
+                <input type="checkbox" id="symbols" checked="checked">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
     </div>
     
 </body>
