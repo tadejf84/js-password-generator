@@ -38,6 +38,9 @@ pwdCopy.addEventListener('click', () => {
 * generate password function
 */
 const generatePwd = (length, upper, lower, number, symbol) => {
+
+    // allowed range of 6 to 20 chars
+    if(length < 6 || length > 20) return 'Password must 6 to 20 chars long!';
     
     let generatedPwd = '';
     const typesArr = [{lower}, {upper}, {number}, {symbol}];                                // get all types
@@ -45,7 +48,7 @@ const generatePwd = (length, upper, lower, number, symbol) => {
     const typesFilteredArrLength = typesFilteredArr.length;                                 // types arr length
 
     // if no type selected, return empty string
-    if(typesFilteredArrLength === 0) return '';
+    if(typesFilteredArrLength === 0) return 'Please select at least one type!';
     
     // loop through pwd length and generate charachters randomly
 	for(let i = 0; i < length; i++) {
