@@ -38,11 +38,11 @@ body {
     border-radius: 0.25rem;
 }
 
-#display-pwd {
+#pwd-display {
     width: 100%;
 }
 
-#enter-pwd-length {
+#pwd-length {
     max-width: 40px;
 }
 
