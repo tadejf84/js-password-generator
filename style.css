@@ -1,51 +1,109 @@
 :root {
-    --body-bg: #f9caa7;
-    --wrapper-bg: #fad9c1;
-    --checkbox-bg: #feb2a8;
+    --body-bg: #adcbe3;
+    --body-bg2: #c6dbeb;
+    --wrapper-bg: #2a4d69;
+    --checkbox-bg: #fff;
+    --btn-bg: #adcbe3;
 }
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--body-bg);
+    background: linear-gradient(to right, var(--body-bg), var(--body-bg2));
     min-height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 10vh 1rem 5vh;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper h1 {
+    color: var(--wrapper-bg);
+    margin-bottom: 3rem;
+    font-size: calc(1.5rem + 2vh);
+    text-align: center;
+    max-width: 700px;
+}
+
+.form-wrapper {
     background-color: var(--wrapper-bg);
     height: auto;
-    width: 400px;
+    width: 325px;
     padding: 2rem;
     border-radius: 0.75rem;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.12);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .input-group {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
+}
+
+.input-group:first-child {
+    margin-top: 0;
+}
+
+.input-group > span {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
 .input {
-    padding: 1rem;
     border: none;
     border-radius: 0.25rem;
+    background-color: #fff;
+    border: none;
 }
 
 #pwd-display {
     width: 100%;
+    padding: 1rem;
+    color: var(--wrapper-bg);
+    font-size: 1.2rem;
+}
+
+#pwd-display::placeholder {
+    color: var(--wrapper-bg);
 }
 
 #pwd-length {
-    max-width: 40px;
+    max-width: 35px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 0.5rem;
 }
 
+.btn {
+    padding: 1rem;
+    background-color: var(--btn-bg);
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.btn--generate {
+    margin-right: 1rem;
+}
+
+.btn:focus, 
+input:focus {
+    outline: none;
+}
 
 /* 
 * custom checkboxes
@@ -55,7 +113,7 @@ body {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
     cursor: pointer;
     font-size: 22px;
     user-select: none;
@@ -72,16 +130,16 @@ body {
 .checkmark {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     height: 25px;
     width: 25px;
-    background-color: transparent;
-    border: 2px solid var(--checkbox-bg);
+    background-color: var(--checkbox-bg);
     border-radius: 0.25rem;
+    transform: translateY(-50%);
 }
   
 .checkbox-container:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: var(--checkbox-bg);
 }
   
 .checkbox-container input:checked ~ .checkmark {
@@ -103,7 +161,7 @@ body {
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid white;
+    border: solid var(--wrapper-bg);
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
 }
