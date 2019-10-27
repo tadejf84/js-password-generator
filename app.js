@@ -15,34 +15,69 @@ pwdGenerateEl.addEventListener('click', () => {
 
     // get user input values
     const length = pwdLengthEl.value;
+    const hasUppercase = pwdUppercaseEl.checked;
 	const hasLowercase = pwdLowercaseEl.checked;
-	const hasUppercase = pwdUppercaseEl.checked;
 	const hasNumbers = pwdNumbersEl.checked;
     const hasSymbols = pwdSymbolsEl.checked;
-    
-    console.log( length, hasLowercase, hasUppercase, hasNumbers, hasSymbols);
 
     // run main function to generate pwd
-    generatePwd();
+    const generatedPwd = generatePwd(length, hasUppercase, hasLowercase, hasNumbers, hasSymbols);
+    console.log(generatedPwd);
+
 });
 
 
 /*
 * generate password function
 */
-const generatePwd = () => {
-    console.log('works');
+const generatePwd = (length, upper, lower, number, symbol) => {
+    
+    let generatedPwd = '';
+    const typesArr = [{lower}, {upper}, {number}, {symbol}];                                // get all types
+    const typesFilteredArr = typesArr.filter(item => Object.values(item)[0] === true);      // get only those types that are checked
+    const typesFilteredArrLength = typesFilteredArr.length;                                 // types arr length
+
+    // if no type selected, return empty string
+    if(typesFilteredArrLength === 0) return '';
+    
+    // loop through pwd length and generate charachters randomly
+	for(let i = 0; i < length; i++) {
+        const randomType = typesFilteredArr[Math.floor(Math.random() * typesFilteredArrLength)];
+        let currentChar = getRandomUppercaseLetter();
+        const currentType =Object.keys(randomType)[0];
+
+        switch(currentType) {
+            case "upper":
+                currentChar = getRandomUppercaseLetter();
+                break;
+            case "lower":
+                currentChar = getRandomLowercaseLetter();
+                break;
+            case "number":
+                currentChar = getRandomNumber();
+                break;
+            case "symbol":
+                    currentChar = getRandomSymbol();
+                    break;
+            default:
+        }
+
+        generatedPwd += currentChar;
+    }
+    
+    return generatedPwd;
 }
+
 
 /*
 * random generator helpers
 */
-function getRandomLowercaseLetter() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
 function getRandomUppercaseLetter() {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomLowercaseLetter() {
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
 function getRandomNumber() {
