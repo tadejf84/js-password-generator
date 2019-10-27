@@ -80,9 +80,12 @@ const generatePwd = (length, upper, lower, number, symbol) => {
 * copy to clipboard function
 */
 const copyToClipboard = () => {
+
     const textarea = document.createElement('textarea');
-	const pwd = pwdDisplayEl.value;
-	if(!pwd) return;
+    const pwd = pwdDisplayEl.value;
+    
+    if(!pwd) return;
+    
 	textarea.value = pwd;
 	document.body.appendChild(textarea);
 	textarea.select();
