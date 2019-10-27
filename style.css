@@ -17,6 +17,7 @@ body {
     justify-content: center;
     padding: 10vh 1rem 5vh;
     font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 .wrapper {
