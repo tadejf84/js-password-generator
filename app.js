@@ -1,4 +1,6 @@
-// cache DOM
+/*
+* caching DOM elements
+*/
 const pwdDisplayEl = document.getElementById('pwd-display');
 const pwdLengthEl= document.getElementById('pwd-length');
 const pwdUppercaseEl = document.getElementById('pwd-uppercase');
@@ -6,6 +8,7 @@ const pwdLowercaseEl = document.getElementById('pwd-lowercase');
 const pwdNumbersEl = document.getElementById('pwd-numbers');
 const pwdSymbolsEl = document.getElementById('pwd-symbols');
 const pwdGenerateEl = document.getElementById('pwd-generate');
+const pwdCopy = document.getElementById('pwd-copy');
 
 
 /*
@@ -22,10 +25,14 @@ pwdGenerateEl.addEventListener('click', () => {
 
     // run main function to generate pwd
     const generatedPwd = generatePwd(length, hasUppercase, hasLowercase, hasNumbers, hasSymbols);
-    console.log(generatedPwd);
 
+    // diplay pwd
+    pwdDisplayEl.value = generatedPwd;
 });
 
+pwdCopy.addEventListener('click', () => {
+    copyToClipboard();
+});
 
 /*
 * generate password function
@@ -66,6 +73,22 @@ const generatePwd = (length, upper, lower, number, symbol) => {
     }
     
     return generatedPwd;
+}
+
+
+/*
+* copy to clipboard function
+*/
+const copyToClipboard = () => {
+    const textarea = document.createElement('textarea');
+	const pwd = pwdDisplayEl.value;
+	if(!pwd) return;
+	textarea.value = pwd;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	textarea.remove();
+	alert('Password copied to clipboard!');
 }
 
 
