@@ -90,12 +90,12 @@ const copyToClipboard = () => {
     
     if(!pwd) return;
     
-	textarea.value = pwd;
-	document.body.appendChild(textarea);
-	textarea.select();
-	document.execCommand('copy');
-	textarea.remove();
-	alert('Password copied to clipboard!');
+    textarea.value = pwd;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+    alert('Password copied to clipboard!');
 }
 
 
