@@ -19,8 +19,8 @@ pwdGenerateEl.addEventListener('click', () => {
     // get user input values
     const length = pwdLengthEl.value;
     const hasUppercase = pwdUppercaseEl.checked;
-	const hasLowercase = pwdLowercaseEl.checked;
-	const hasNumbers = pwdNumbersEl.checked;
+    const hasLowercase = pwdLowercaseEl.checked;
+    const hasNumbers = pwdNumbersEl.checked;
     const hasSymbols = pwdSymbolsEl.checked;
 
     // run main function to generate pwd
@@ -51,10 +51,10 @@ const generatePwd = (length, upper, lower, number, symbol) => {
     if(typesFilteredArrLength === 0) return 'Please select at least one type!';
     
     // loop through pwd length and generate charachters randomly
-	for(let i = 0; i < length; i++) {
+    for(let i = 0; i < length; i++) {
         const randomType = typesFilteredArr[Math.floor(Math.random() * typesFilteredArrLength)];
-        let currentChar = getRandomUppercaseLetter();
-        const currentType =Object.keys(randomType)[0];
+        let currentChar;
+        const currentType = Object.keys(randomType)[0];
 
         switch(currentType) {
             case "upper":
@@ -67,14 +67,15 @@ const generatePwd = (length, upper, lower, number, symbol) => {
                 currentChar = getRandomNumber();
                 break;
             case "symbol":
-                    currentChar = getRandomSymbol();
-                    break;
+                currentChar = getRandomSymbol();
+                break;
             default:
+                currentChar = getRandomUppercaseLetter();
         }
 
         generatedPwd += currentChar;
     }
-    
+
     return generatedPwd;
 }
 
