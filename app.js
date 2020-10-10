@@ -46,6 +46,7 @@ const showGeneratedPwd = () => {
 const generatePwd = () => {
 
     let generatedPwd = '';
+    errorArr.length = 0;
 
     // Get user input values
     const length = pwdLengthEl.value;
