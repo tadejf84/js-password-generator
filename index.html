@@ -21,7 +21,7 @@
 
             <div class="input-group">
                 <span>Password Length (6-20 chars)</span>
-                <input type="number" value="10" min="6" max="20" id="pwd-length" class="input">
+                <input type="number" value="10" min="1" max="20" id="pwd-length" class="input" autofocus>
             </div>
 
             <div class="input-group">
@@ -49,11 +49,16 @@
             </div>
 
             <div class="input-group">
-                <span>Symbols</span>
+                <span>Special Characters</span>
                 <label class="checkbox-container">
-                    <input type="checkbox" id="pwd-symbols" checked="checked">
+                    <input type="checkbox" id="pwd-special" checked="checked">
                     <span class="checkmark"></span>
                 </label>
+            </div>
+
+            <div class="strength-meter" id="strength-meter">
+                <span id="strength-meter-bg"></span>
+                <span id="strength-meter-text">Password strength indicator</span>
             </div>
 
             <button type="button" id="pwd-generate" class="btn btn--generate">Generate Password</button>

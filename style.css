@@ -85,6 +85,48 @@ body {
     padding: 0 0.5rem;
 }
 
+.strength-meter {
+    position: relative;
+    height: 2rem;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+}
+
+#strength-meter-bg {
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: calc(1% * var(--strength, 0));
+    background: #fff;
+    transition: width 200ms;
+}
+
+#strength-meter-bg.weak {
+    background-color: #E50000;
+}
+
+#strength-meter-bg.medium {
+    background-color: #FFFF19;
+}
+
+#strength-meter-bg.strong {
+    background-color: #32CD32;
+}
+
+#strength-meter-text {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+
 .btn {
     padding: 1rem;
     background-color: var(--btn-bg);
