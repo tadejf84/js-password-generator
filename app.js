@@ -76,11 +76,13 @@ const generatePwd = () => {
     }
 
     // Loop through pwd length and generate charachters randomly
-    for(let i = 0; i < length; i++) {
+    for(let i = 0; i < length; i++) 
+    {
         let randomType = typesFilteredArr[Math.floor(Math.random() * typesFilteredArrLength)];
         randomType = Object.keys(randomType)[0];
 
-        switch(randomType) {
+        switch(randomType) 
+        {
             case "upperChecked":
                 generatedPwd += getRandomUppercaseLetter();
                 break;
@@ -196,8 +198,14 @@ const calculatePwdStrength = (pwd) => {
  * 
  */
 const showPwdStrength = (pwd) => {
+
+    // Get pwd strength
     const pwdStrength = calculatePwdStrength(pwd);
+
+    // Reset styles
     strengthMeterBgEl.className = '';
+
+    // Set width of the strength indicator
     strengthMeterBgEl.style.setProperty('--strength', pwdStrength);
 
     // Show password status
