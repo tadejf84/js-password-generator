@@ -1,2 +1,2 @@
 # js-password-generator
-JavaScript Password Generator
+JavaScript Password Generator with Strength Indicator
