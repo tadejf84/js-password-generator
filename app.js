@@ -40,8 +40,7 @@ const showGeneratedPwd = () => {
 /**
  * Generate password
  * 
- * @returns {string} password 
- * 
+ * @returns {string} generated password 
  */
 const generatePwd = () => {
 
@@ -111,7 +110,6 @@ const generatePwd = () => {
  * @param {string} password  
  * 
  * @returns {number} password strength 
- * 
  */
 const calculatePwdStrength = (pwd) => {
 
@@ -197,6 +195,7 @@ const calculatePwdStrength = (pwd) => {
 /**
  * Show password strength
  * 
+ * @param {string} password
  */
 const showPwdStrength = (pwd) => {
 
@@ -251,7 +250,6 @@ const copyToClipboard = () => {
  * Generate random chars helpers
  * 
  * @returns {string} character
- * 
  */
 function getRandomUppercaseLetter() {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
